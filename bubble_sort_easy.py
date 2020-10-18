@@ -10,6 +10,23 @@ def bubbleSort(array):
         for j in range(i+1, len(array)):
             if array[i]>array[j]:
                 array[i], array[j] = array[j], array[i]
+#     return array
+
+# print(bubbleSort([8,5,2,9,5,6,3]))
+
+#Another way to do it below:
+def bubbleSortV2(array):
+    isSorted = False
+    counter = 0
+    while not isSorted:
+        isSorted = True
+        for i in range(len(array) - 1 - counter):
+            if array[i] > array[i+1]:
+                swap(i, i+1, array)
+                isSorted = False
+        counter += 1
     return array
 
-print(bubbleSort([8,5,2,9,5,6,3]))
+def swap(i, j, array):
+    array[i], array[j] = array[j], array[i]
+print(bubbleSortV2([8,5,2,9,5,6,3]))
